@@ -1,5 +1,6 @@
 from http.server import SimpleHTTPRequestHandler, HTTPServer
 import json
+import os
 
 
 class SryboHandler(SimpleHTTPRequestHandler):
@@ -18,15 +19,10 @@ class SryboHandler(SimpleHTTPRequestHandler):
             question = request.get("question", "").strip()
             q = question.lower()
 
-            # C PROGRAMMING
-            if (
-                "c programming" in q
-                or "what is c" in q
-                or "explain c" in q
-            ):
+            if "c programming" in q or "what is c" in q or "explain c" in q:
                 answer = """C Programming
 
-C is a general-purpose programming language developed by Dennis Ritchie at Bell Labs.
+C is a general-purpose programming language developed by Dennis Ritchie.
 
 Important C topics include:
 
@@ -41,12 +37,7 @@ Important C topics include:
 9. File handling
 10. Dynamic memory allocation"""
 
-            # PYTHON
-            elif (
-                "python" in q
-                or "what is python" in q
-                or "explain python" in q
-            ):
+            elif "python" in q or "what is python" in q or "explain python" in q:
                 answer = """Python
 
 Python is a high-level programming language known for its simple and readable syntax.
@@ -60,12 +51,7 @@ Python is commonly used for:
 5. Software development
 6. Machine learning"""
 
-            # COMPUTER HARDWARE
-            elif (
-                "hardware" in q
-                or "computer hardware" in q
-                or "physical parts" in q
-            ):
+            elif "hardware" in q:
                 answer = """Computer Hardware
 
 Computer hardware refers to the physical parts of a computer that can be seen and touched.
@@ -79,15 +65,9 @@ Examples include:
 5. Mouse
 6. Monitor
 7. Motherboard
-8. Printer
+8. Printer"""
 
-The CPU is often called the brain of the computer because it processes instructions."""
-
-            # COMPUTER SOFTWARE
-            elif (
-                "software" in q
-                or "computer software" in q
-            ):
+            elif "software" in q:
                 answer = """Computer Software
 
 Computer software is a collection of programs and instructions that tell computer hardware what to do.
@@ -100,38 +80,24 @@ Two major types are:
 2. Application software
    Example: Web browsers and word processors"""
 
-            # COMPUTER NETWORKS
-            elif (
-                "network" in q
-                or "computer network" in q
-                or "networking" in q
-            ):
+            elif "network" in q or "networking" in q:
                 answer = """Computer Networks
 
 A computer network is a group of computers and devices connected together so they can communicate and share resources.
 
-Types of networks include:
+Types include:
 
 1. LAN - Local Area Network
 2. WAN - Wide Area Network
 3. MAN - Metropolitan Area Network
-4. PAN - Personal Area Network
+4. PAN - Personal Area Network"""
 
-Common networking devices include routers, switches and access points."""
-
-            # DATABASE
-            elif (
-                "database" in q
-                or "databases" in q
-                or "dbms" in q
-            ):
+            elif "database" in q or "databases" in q or "dbms" in q:
                 answer = """Database Systems
 
 A database is an organized collection of data that can be stored, accessed, managed and updated.
 
-A DBMS means Database Management System.
-
-A DBMS is software used to manage databases.
+DBMS means Database Management System.
 
 Examples include:
 
@@ -140,11 +106,7 @@ Examples include:
 3. Microsoft SQL Server
 4. Oracle Database"""
 
-            # OPERATING SYSTEM
-            elif (
-                "operating system" in q
-                or "operating systems" in q
-            ):
+            elif "operating system" in q or "operating systems" in q:
                 answer = """Operating Systems
 
 An operating system is system software that manages computer hardware and provides services for application programs.
@@ -164,31 +126,20 @@ Main functions include:
 4. Device management
 5. Security management"""
 
-            # WEB DEVELOPMENT
-            elif (
-                "web development" in q
-                or "website" in q
-                or "websites" in q
-                or "web development" in q
-            ):
+            elif "web development" in q or "website" in q or "websites" in q:
                 answer = """Web Development
 
 Web development is the process of creating websites and web applications.
 
 The main technologies are:
 
-1. HTML - creates the structure
-2. CSS - controls design and appearance
-3. JavaScript - adds interaction and behavior
+1. HTML - creates structure
+2. CSS - controls design
+3. JavaScript - adds interaction
 
-Backend technologies can include Python, PHP and Node.js."""
+Backend technologies include Python, PHP and Node.js."""
 
-            # CYBERSECURITY
-            elif (
-                "cybersecurity" in q
-                or "cyber security" in q
-                or "computer security" in q
-            ):
+            elif "cybersecurity" in q or "cyber security" in q:
                 answer = """Cybersecurity
 
 Cybersecurity is the practice of protecting computers, networks, applications and data from unauthorized access and attacks.
@@ -202,12 +153,7 @@ Important areas include:
 5. Access control
 6. Data protection"""
 
-            # MATHEMATICS
-            elif (
-                "mathematics" in q
-                or "math" in q
-                or "mathematical" in q
-            ):
+            elif "mathematics" in q or "math" in q or "mathematical" in q:
                 answer = """Mathematics in Computer Science
 
 Mathematics is an important part of Computer Science.
@@ -219,16 +165,9 @@ It is used in:
 3. Computer graphics
 4. Cryptography
 5. Artificial intelligence
-6. Data analysis
+6. Data analysis"""
 
-Mathematics helps programmers solve problems logically and efficiently."""
-
-            # ENTREPRENEURSHIP
-            elif (
-                "entrepreneurship" in q
-                or "entrepreneur" in q
-                or "business idea" in q
-            ):
+            elif "entrepreneurship" in q or "entrepreneur" in q:
                 answer = """Entrepreneurship
 
 Entrepreneurship is the process of identifying an opportunity, creating a business idea and organizing resources to create value.
@@ -242,18 +181,12 @@ Important concepts include:
 5. Risk management
 6. Customer needs"""
 
-            # PROGRAMMING
-            elif (
-                "programming" in q
-                or "programming language" in q
-            ):
+            elif "programming" in q or "programming language" in q:
                 answer = """Programming
 
 Programming is the process of writing instructions that a computer can execute.
 
-Programming languages allow humans to communicate instructions to computers.
-
-Examples include:
+Examples of programming languages include:
 
 1. C
 2. Python
@@ -261,15 +194,10 @@ Examples include:
 4. JavaScript
 5. C++"""
 
-            # GREETING
-            elif (
-                "hello" in q
-                or "hi" in q
-                or "hey" in q
-            ):
+            elif "hello" in q or "hi" in q or "hey" in q:
                 answer = """Hello! 👋
 
-I'm Srybo Study AI.
+I'm Srybo Study AI. 🤖
 
 I can help you study:
 
@@ -286,7 +214,6 @@ I can help you study:
 • Entrepreneurship
 • Programming"""
 
-            # UNKNOWN QUESTION
             else:
                 answer = """I'm Srybo Study AI. 🤖
 
@@ -312,22 +239,12 @@ Try asking me:
             }).encode("utf-8")
 
             self.send_response(200)
-            self.send_header(
-                "Content-Type",
-                "application/json"
-            )
-            self.send_header(
-                "Content-Length",
-                str(len(response))
-            )
-            self.send_header(
-                "Access-Control-Allow-Origin",
-                "*"
-            )
+            self.send_header("Content-Type", "application/json")
+            self.send_header("Content-Length", str(len(response)))
+            self.send_header("Access-Control-Allow-Origin", "*")
             self.end_headers()
 
             self.wfile.write(response)
-            self.wfile.flush()
 
         except Exception as e:
 
@@ -336,26 +253,20 @@ Try asking me:
             }).encode("utf-8")
 
             self.send_response(500)
-            self.send_header(
-                "Content-Type",
-                "application/json"
-            )
-            self.send_header(
-                "Content-Length",
-                str(len(response))
-            )
+            self.send_header("Content-Type", "application/json")
+            self.send_header("Content-Length", str(len(response)))
             self.end_headers()
 
             self.wfile.write(response)
 
 
+port = int(os.environ.get("PORT", 8000))
+
 server = HTTPServer(
-    ("0.0.0.0", 8000),
+    ("0.0.0.0", port),
     SryboHandler
 )
 
-print(
-    "Srybo Study AI running on http://localhost:8000"
-)
+print(f"Srybo Study AI running on port {port}")
 
 server.serve_forever()
