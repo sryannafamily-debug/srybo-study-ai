@@ -1,0 +1,4 @@
+__pycache__/
+*.pyc
+app_backup.py
+app_backup2.py

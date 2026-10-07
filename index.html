@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Srybo Study AI</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <header>
+        <h1>🤖 Srybo Study AI</h1>
+        <p>Your AI study assistant</p>
+    </header>
+
+    <main>
+
+        <section class="hero">
+            <h2>Learn Smarter with Srybo</h2>
+
+            <p>
+                Ask questions, learn programming, and improve
+                your computer science skills.
+            </p>
+
+            <button onclick="openChat()">Start Learning</button>
+        </section>
+
+        <section id="chat" class="chat-section">
+
+            <h2>💬 Study Chat</h2>
+
+            <div id="messages" class="messages">
+
+                <div class="ai-message">
+                    Hello! 👋 I'm Srybo Study AI.
+                    What would you like to learn today?
+                </div>
+
+            </div>
+
+            <div class="input-area">
+
+                <div class="quick-actions">
+
+                    <button onclick="quickAsk('Explain this topic: ')">
+                        📚 Explain Topic
+                    </button>
+
+                    <button onclick="quickAsk('Teach me C programming about: ')">
+                        💻 C Programming
+                    </button>
+
+                    <button onclick="quickAsk('Help me solve this mathematics question: ')">
+                        🧮 Mathematics
+                    </button>
+
+                    <button onclick="quickAsk('Create clear study notes about: ')">
+                        📝 Create Notes
+                    </button>
+
+                    <button onclick="quickAsk('Search for information about: ')">
+                        🔍 Search
+                    </button>
+
+                </div>
+
+                <input
+                    type="text"
+                    id="userInput"
+                    placeholder="Ask me a study question..."
+                >
+
+                <button onclick="sendMessage()">Send</button>
+
+            </div>
+
+        </section>
+
+    </main>
+
+    <footer>
+        <p>© 2026 Srybo Study AI</p>
+    </footer>
+
+    <script src="script.js"></script>
+
+</body>
+</html>
